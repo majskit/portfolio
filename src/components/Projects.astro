@@ -1,0 +1,280 @@
+---
+import { projects } from '../data/projects';
+---
+
+<section id="projects" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Featured Projects</h2>
+      <div class="w-24 h-1 bg-primary-600 mx-auto mb-4"></div>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        Here are some of the projects I've worked on recently
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+          <!-- Project Image -->
+          <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
+            <div class="text-6xl">🎬</div>
+          </div>
+          
+          <!-- Project Content -->
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span class={`px-3 py-1 rounded-full text-sm font-medium ${
+                project.category === 'frontend' ? 'bg-blue-100 text-blue-700' :
+                project.category === 'backend' ? 'bg-green-100 text-green-700' :
+                project.category === 'fullstack' ? 'bg-purple-100 text-purple-700' :
+                'bg-gray-100 text-gray-700'
+              }`}>
+                {project.category}
+              </span>
+              <span class={`px-2 py-1 rounded text-xs font-medium ${
+                project.status === 'completed' ? 'bg-green-100 text-green-700' :
+                project.status === 'in-progress' ? 'bg-yellow-100 text-yellow-700' :
+                'bg-gray-100 text-gray-700'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+            
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">{project.title}</h3>
+            <p class="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+            
+            <!-- Technologies -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.technologies.slice(0, 4).map(tech => (
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                  {tech}
+                </span>
+              ))}
+              {project.technologies.length > 4 && (
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                  +{project.technologies.length - 4} more
+                </span>
+              )}
+            </div>
+            
+            <!-- Links -->
+            <div class="flex gap-2">
+              <button 
+                onclick={`openProjectModal('${project.id}')`}
+                class="flex-1 bg-primary-600 text-white text-center py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors duration-300 font-medium text-sm"
+              >
+                Details
+              </button>
+              {project.links.demo && (
+                <a 
+                  href={project.links.demo} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="flex-1 bg-green-600 text-white text-center py-2 px-3 rounded-lg hover:bg-green-700 transition-colors duration-300 font-medium text-sm"
+                >
+                  Demo
+                </a>
+              )}
+              {project.links.github && (
+                <a 
+                  href={project.links.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="flex-1 border-2 border-gray-300 text-gray-700 text-center py-2 px-3 rounded-lg hover:border-primary-600 hover:text-primary-600 transition-colors duration-300 font-medium text-sm"
+                >
+                  Code
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Project Details Modal would go here -->
+    <div class="mt-16 text-center">
+      <p class="text-gray-600 mb-6">Want to see more projects or discuss a collaboration?</p>
+      <a 
+        href="#contact" 
+        class="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-300 font-semibold"
+      >
+        Get In Touch
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Detailed Project Modal -->
+<div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 p-4">
+  <div class="max-w-5xl mx-auto my-8 bg-white rounded-xl overflow-hidden max-h-full overflow-y-auto">
+    <div class="relative">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 text-white">
+        <div class="flex justify-between items-start">
+          <div>
+            <h3 id="modal-title" class="text-3xl font-bold mb-2"></h3>
+            <div id="modal-badges" class="flex gap-2"></div>
+          </div>
+          <button id="close-modal" class="text-white hover:text-gray-200 text-3xl font-light">&times;</button>
+        </div>
+      </div>
+      
+      <!-- Modal Content -->
+      <div class="p-8">
+        <div id="modal-content" class="space-y-8">
+          <!-- Content will be dynamically populated -->
+        </div>
+        
+        <!-- Modal Footer with Links -->
+        <div id="modal-links" class="flex gap-4 mt-8 pt-6 border-t border-gray-200">
+          <!-- Links will be dynamically populated -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // TypeScript declaration for global function
+  declare global {
+    interface Window {
+      openProjectModal: (projectId: string) => void;
+    }
+  }
+
+  // Project data for modal
+  const projectsData = {
+    'movie-search-react': {
+      title: 'Movie Search React App',
+      description: 'A modern movie search application built with React and The Movie Database API',
+      longDescription: 'This is a comprehensive movie search application that allows users to search for movies, and view detailed information. The app features a clean, responsive design with advanced search capabilities and real-time data from The Movie Database (TMDb) API.',
+      technologies: ['React', 'CSS','The Movie Database API', 'React Router', 'Responsive Design'],
+      features: [
+        'Search movies by title with real-time suggestions',
+        'View detailed movie information including cast, reviews, and ratings',
+        'Browse popular movies',
+        'Add movies to favorites list',
+        'Responsive design for all devices',
+        'Clean and intuitive user interface',
+        'Fast loading with optimized API calls'
+      ],
+      links: {
+        demo: 'https://movie-search-react-omega.vercel.app/',
+        github: 'https://github.com/majskit/movie-search-react'
+      },
+      status: 'completed',
+      category: 'frontend'
+    }
+  };
+
+  // Open project modal
+  function openProjectModal(projectId) {
+    const project = projectsData[projectId];
+    if (!project) return;
+
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalBadges = document.getElementById('modal-badges');
+    const modalContent = document.getElementById('modal-content');
+    const modalLinks = document.getElementById('modal-links');
+
+    // Set title
+    modalTitle.textContent = project.title;
+
+    // Set badges
+    modalBadges.innerHTML = `
+      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white">
+        ${project.category}
+      </span>
+      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white">
+        ${project.status}
+      </span>
+    `;
+
+    // Set content
+    modalContent.innerHTML = `
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-4">About This Project</h4>
+          <p class="text-gray-600 leading-relaxed mb-6">${project.longDescription}</p>
+          
+          <h4 class="text-xl font-semibold text-gray-800 mb-4">Technologies Used</h4>
+          <div class="flex flex-wrap gap-2">
+            ${project.technologies.map(tech => `
+              <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
+                ${tech}
+              </span>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div>
+          <h4 class="text-xl font-semibold text-gray-800 mb-4">Key Features</h4>
+          <ul class="space-y-3">
+            ${project.features.map(feature => `
+              <li class="flex items-start space-x-3">
+                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-gray-600">${feature}</span>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+
+    // Set links
+    modalLinks.innerHTML = `
+      ${project.links.demo ? `
+        <a href="${project.links.demo}" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center space-x-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 font-semibold">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+          </svg>
+          <span>Live Demo</span>
+        </a>
+      ` : ''}
+      ${project.links.github ? `
+        <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" 
+           class="flex items-center space-x-2 bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors duration-300 font-semibold">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          <span>View Code</span>
+        </a>
+      ` : ''}
+    `;
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // Project modal functionality
+  const modal = document.getElementById('project-modal');
+  const closeModal = document.getElementById('close-modal');
+  
+  // Close modal when clicking outside or on close button
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  closeModal?.addEventListener('click', () => {
+    modal?.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Escape key to close modal
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+  });
+
+  // Make function globally available
+  window.openProjectModal = openProjectModal;
+</script>
