@@ -2,37 +2,53 @@
 // Footer component
 ---
 
-<footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
-  <div class="container mx-auto px-6">
+<footer class="bg-gradient-to-t from-black via-gray-900 to-blue-900 text-white py-12 border-t border-cyan-400/20 relative overflow-hidden">
+  <!-- Cosmic background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-0 left-1/4 w-32 h-32 bg-cyan-500/10 rounded-full blur-2xl animate-float" style="animation: float-gentle 6s ease-in-out infinite !important;"></div>
+    <div class="absolute bottom-0 right-1/4 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl animate-float" style="animation: float-gentle 6s ease-in-out infinite !important; animation-delay: 1s;"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
     <div class="grid md:grid-cols-2 gap-8 justify-items-center text-center md:text-left">
       <!-- Brand & Description -->
       <div class="space-y-4">
-        <h3 class="text-xl font-bold">Your Name</h3>
-        <p class="text-gray-400 text-sm leading-relaxed">
-          Full-Stack Developer passionate about creating modern web applications 
-          with clean code and great user experience.
+        <h3 class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          🚀 Dev Space Station
+        </h3>
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Software developer navigating the digital universe, 
+          crafting stellar web experiences with modern technologies.
         </p>
       </div>
 
       <!-- Quick Links -->
       <div class="space-y-4">
-        <h4 class="text-lg font-semibold">Quick Links</h4>
+        <h4 class="text-lg font-semibold text-cyan-400">📡 Navigation Links</h4>
         <nav class="flex flex-col space-y-2">
-          <a href="#about" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">About</a>
-          <a href="#skills" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Skills</a>
-          <a href="#projects" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Projects</a>
-          <a href="#contact" class="text-gray-400 hover:text-primary-400 transition-colors text-sm">Contact</a>
+          <a href="#about" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm flex items-center justify-center md:justify-start">
+            <span class="mr-2">🛸</span> About Mission
+          </a>
+          <a href="#skills" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm flex items-center justify-center md:justify-start">
+            <span class="mr-2">⚡</span> Tech Arsenal
+          </a>
+          <a href="#projects" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm flex items-center justify-center md:justify-start">
+            <span class="mr-2">🌟</span> Projects Galaxy
+          </a>
+          <a href="#contact" class="text-gray-400 hover:text-cyan-400 transition-colors text-sm flex items-center justify-center md:justify-start">
+            <span class="mr-2">📡</span> Make Contact
+          </a>
         </nav>
       </div>
     </div>
 
     <!-- Bottom Bar -->
-    <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-      <p class="text-gray-400 text-sm">
-        © 2025 Your Name. All rights reserved.
+    <div class="border-t border-cyan-400/20 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-400 text-sm flex items-center">
+        <span class="mr-2">©</span> 2025 Dev Space Station. All rights reserved across the universe.
       </p>
-      <p class="text-gray-400 text-sm mt-2 md:mt-0">
-        Built with 💜 using Astro & Tailwind CSS
+      <p class="text-gray-400 text-sm mt-2 md:mt-0 flex items-center">
+        Built with 💜 using Astro & Tailwind CSS <span class="ml-2">🚀</span>
       </p>
     </div>
   </div>

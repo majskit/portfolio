@@ -2,51 +2,67 @@
 // Hero section component
 ---
 
-<section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden">
-  <!-- Background gradient -->
-  <div class="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-900"></div>
-  
-  <!-- Animated background elements -->
+<section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-black">
+  <!-- Animated space background -->
   <div class="absolute inset-0">
-    <div class="absolute top-20 left-20 w-32 h-32 bg-white bg-opacity-10 rounded-full animate-float"></div>
-    <div class="absolute bottom-20 right-20 w-24 h-24 bg-white bg-opacity-5 rounded-full animate-float" style="animation-delay: 1s;"></div>
-    <div class="absolute top-1/2 left-10 w-16 h-16 bg-white bg-opacity-10 rounded-full animate-float" style="animation-delay: 2s;"></div>
+    <!-- Stars -->
+    <div class="absolute top-10 left-10 w-2 h-2 bg-cyan-400 rounded-full animate-pulse shadow-lg shadow-cyan-400/50"></div>
+    <div class="absolute top-20 right-20 w-1 h-1 bg-white rounded-full animate-pulse"></div>
+    <div class="absolute bottom-20 left-20 w-1 h-1 bg-cyan-300 rounded-full animate-pulse"></div>
+    <div class="absolute top-1/3 right-1/3 w-1 h-1 bg-blue-300 rounded-full animate-pulse"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-2 h-2 bg-cyan-500 rounded-full animate-pulse shadow-lg shadow-cyan-500/50"></div>
+    
+    <!-- Floating particles -->
+    <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-cyan-500 bg-opacity-10 rounded-full animate-float blur-xl"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-24 h-24 bg-blue-500 bg-opacity-10 rounded-full animate-float blur-xl" style="animation-delay: 1s;"></div>
+    <div class="absolute top-1/2 right-10 w-16 h-16 bg-cyan-400 bg-opacity-10 rounded-full animate-float blur-xl" style="animation-delay: 2s;"></div>
   </div>
 
   <div class="container mx-auto px-6 text-center text-white relative z-10">
     <div class="animate-slide-up">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-        Hi, there!
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 text-primary-100 max-w-3xl mx-auto">
-        I'm a Full Stack Developer specializing in modern web technologies
+      <!-- Glowing title effect -->
+      <div class="mb-8 animate-float-intro">
+        <h1 class="text-6xl md:text-8xl font-bold mb-4 leading-tight">
+          <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-300 bg-clip-text text-transparent drop-shadow-2xl">
+            Houston, We Have a Developer!
+          </span>
+        </h1>
+        <div class="w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full shadow-lg shadow-cyan-400/50"></div>
+      </div>
+      
+      <p class="text-xl md:text-2xl mb-8 text-cyan-100 max-w-3xl mx-auto font-light">
+        Software Developer navigating the digital universe
       </p>
-      <p class="text-lg mb-12 text-primary-200 max-w-2xl mx-auto">
-        Passionate about creating beautiful, functional, and user-friendly applications
-        with React, Next.js, Node.js, and modern web technologies.
+      <p class="text-lg mb-12 text-gray-300 max-w-2xl mx-auto leading-relaxed">
+        Crafting stellar web experiences with modern technologies. 
+        Ready to launch your project into orbit? 🚀
       </p>
       
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
         <a 
           href="#projects" 
-          class="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+          class="group relative bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40"
         >
-          View My Work
+          <span class="relative z-10">🚀 Explore Projects</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"></div>
         </a>
         <a 
           href="#contact" 
-          class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-700 transition-all duration-300 transform hover:scale-105"
+          class="group relative border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl font-semibold hover:bg-cyan-400 hover:text-gray-900 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-cyan-400/25"
         >
-          Get In Touch
+          <span class="relative z-10">📡 Make Contact</span>
         </a>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
+    <!-- Animated scroll indicator -->
     <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      <div class="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center shadow-lg shadow-cyan-400/50">
+        <div class="w-1 h-3 bg-cyan-400 rounded-full mt-2 animate-pulse shadow-sm shadow-cyan-400"></div>
       </div>
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </section>

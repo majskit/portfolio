@@ -2,52 +2,108 @@
 // About section component
 ---
 
-<section id="about" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
+<section id="about" class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-black relative overflow-hidden">
+  <!-- Cosmic background elements -->
+  <div class="absolute inset-0">
+    <div class="absolute top-10 right-10 w-64 h-64 bg-cyan-500 bg-opacity-10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-10 left-10 w-48 h-48 bg-blue-500 bg-opacity-10 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">About Me</h2>
-      <div class="w-24 h-1 bg-primary-600 mx-auto"></div>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          Mission Control Center
+        </span>
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full shadow-lg shadow-cyan-400/50"></div>
+      <p class="text-gray-300 mt-4 text-lg">Getting to know the pilot behind the code</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="space-y-6">
-        <h3 class="text-2xl font-semibold text-gray-800 mb-4">
-          Passionate Full-Stack Developer
+        <h3 class="text-2xl font-semibold text-cyan-400 mb-4 flex items-center">
+          <span class="mr-3">🚀</span>
+          Space Explorer & Code Navigator
         </h3>
-        <p class="text-gray-600 leading-relaxed">
-          I'm a dedicated full-stack developer with a strong foundation in modern web technologies. 
-          My journey in programming started with a curiosity about how things work on the web, 
-          and it has evolved into a passion for creating innovative solutions.
+        <p class="text-gray-300 leading-relaxed">
+          Welcome aboard! I'm a software developer charting courses through the digital cosmos. 
+          My mission began with curiosity about the web's inner workings and has evolved into 
+          crafting stellar user experiences across the internet galaxy.
         </p>
-        <p class="text-gray-600 leading-relaxed">
-          I specialize in building responsive, user-friendly applications using React, Node.js, 
-          and various modern frameworks. I'm always eager to learn new technologies and 
-          improve my skills to deliver the best possible solutions.
+        <p class="text-gray-300 leading-relaxed">
+          Specializing in modern spacecraft technologies like React, Node.js, and cutting-edge 
+          frameworks, I navigate through complex coding challenges to deliver robust, 
+          scalable solutions that reach new heights.
         </p>
-        <p class="text-gray-600 leading-relaxed">
-          When I'm not coding, you can find me exploring new technologies, contributing to 
-          open-source projects, or learning about the latest trends in web development.
+        <p class="text-gray-300 leading-relaxed">
+          When not piloting code through cyber space, you'll find me exploring emerging 
+          technologies, contributing to the open-source universe, and staying updated 
+          with the latest developments in our ever-expanding digital frontier.
         </p>
 
         <div class="flex flex-wrap gap-4 pt-4">
-          <span class="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
-            Problem Solver
+          <span class="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+            🛠️ Problem Solver
           </span>
-          <span class="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
-            Quick Learner
+          <span class="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+            ⚡ Quick Learner
           </span>
-          <span class="bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium">
-            Team Player
+          <span class="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+            👨‍🚀 Team Navigator
           </span>
         </div>
       </div>
 
       <div class="relative">
-        <div class="bg-gradient-to-br from-primary-100 to-primary-200 rounded-2xl p-8 transform rotate-3 shadow-lg">
-          <div class="bg-white rounded-xl p-6 transform -rotate-6 shadow-xl">
+        <!-- Floating space console -->
+        <div class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-2xl p-8 transform rotate-3 shadow-2xl border border-cyan-400/20 relative overflow-hidden animate-float-intro">
+          <!-- Glowing effect -->
+          <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-blue-400/10 rounded-2xl"></div>
+          
+          <div class="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-sm rounded-xl p-6 transform -rotate-6 shadow-2xl border border-cyan-400/30 relative z-10">
             <div class="text-center">
-              <div class="w-32 h-32 bg-gradient-to-br from-primary-500 to-primary-700 rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span class="text-4xl font-bold text-white">👨‍💻</span>
+              <!-- Holographic avatar -->
+              <div class="w-32 h-32 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full mx-auto mb-4 flex items-center justify-center border-2 border-cyan-400/50 shadow-lg shadow-cyan-400/25 animate-glow">
+                <span class="text-4xl">👨‍🚀</span>
+              </div>
+              
+              <h4 class="text-xl font-semibold text-cyan-400 mb-2">Developer.exe</h4>
+              <p class="text-gray-300 text-sm mb-4">Status: Online & Ready to Launch</p>
+              
+              <!-- Console stats -->
+              <div class="space-y-2 text-left">
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Experience Level:</span>
+                  <span class="text-cyan-400">Advanced</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Coffee Consumed:</span>
+                  <span class="text-cyan-400">∞</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Bugs Fixed:</span>
+                  <span class="text-cyan-400">9,999+</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-400">Mission Status:</span>
+                  <span class="text-green-400">Active</span>
+                </div>
+              </div>
+              
+              <!-- Blinking indicators -->
+              <div class="flex justify-center gap-2 mt-4">
+                <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+                <div class="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
               </div>
               <h4 class="text-xl font-semibold text-gray-800 mb-2">Always Learning</h4>
               <p class="text-gray-600 text-sm">

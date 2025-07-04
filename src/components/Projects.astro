@@ -2,56 +2,70 @@
 import { projects } from '../data/projects';
 ---
 
-<section id="projects" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
+<section id="projects" class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-black relative overflow-hidden">
+  <!-- Cosmic background -->
+  <div class="absolute inset-0">
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-float"></div>
+    <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-float" style="animation-delay: 1s;"></div>
+  </div>
+
+  <div class="container mx-auto px-6 relative z-10">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Featured Projects</h2>
-      <div class="w-24 h-1 bg-primary-600 mx-auto mb-4"></div>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-        Here are some of the projects I've worked on recently
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          🌟 Projects Galaxy
+        </span>
+      </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mb-4 rounded-full shadow-lg shadow-cyan-400/50"></div>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        Explore the stellar projects from my coding adventures across the digital universe
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map(project => (
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+        <div class="group bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-xl border border-cyan-400/20 overflow-hidden hover:border-cyan-400/40 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-cyan-500/25">
           <!-- Project Image -->
-          <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center">
-            <div class="text-6xl">🎬</div>
+          <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center relative overflow-hidden">
+            <!-- Cosmic animation background -->
+            <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-blue-700/20"></div>
+            <div class="absolute top-2 right-2 w-8 h-8 bg-cyan-400/30 rounded-full animate-pulse"></div>
+            <div class="absolute bottom-4 left-4 w-4 h-4 bg-blue-400/40 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+            <div class="text-6xl relative z-10 group-hover:animate-float-intro">🚀</div>
           </div>
           
           <!-- Project Content -->
-          <div class="p-6">
+          <div class="p-6 relative">
             <div class="flex items-center justify-between mb-3">
-              <span class={`px-3 py-1 rounded-full text-sm font-medium ${
-                project.category === 'frontend' ? 'bg-blue-100 text-blue-700' :
-                project.category === 'backend' ? 'bg-green-100 text-green-700' :
-                project.category === 'fullstack' ? 'bg-purple-100 text-purple-700' :
-                'bg-gray-100 text-gray-700'
+              <span class={`px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm ${
+                project.category === 'frontend' ? 'bg-cyan-500/20 border border-cyan-400/30 text-cyan-300' :
+                project.category === 'backend' ? 'bg-blue-500/20 border border-blue-400/30 text-blue-300' :
+                project.category === 'fullstack' ? 'bg-purple-500/20 border border-purple-400/30 text-purple-300' :
+                'bg-gray-500/20 border border-gray-400/30 text-gray-300'
               }`}>
                 {project.category}
               </span>
-              <span class={`px-2 py-1 rounded text-xs font-medium ${
-                project.status === 'completed' ? 'bg-green-100 text-green-700' :
-                project.status === 'in-progress' ? 'bg-yellow-100 text-yellow-700' :
-                'bg-gray-100 text-gray-700'
+              <span class={`px-2 py-1 rounded text-xs font-medium backdrop-blur-sm ${
+                project.status === 'completed' ? 'bg-green-500/20 border border-green-400/30 text-green-300' :
+                project.status === 'in-progress' ? 'bg-yellow-500/20 border border-yellow-400/30 text-yellow-300' :
+                'bg-gray-500/20 border border-gray-400/30 text-gray-300'
               }`}>
                 {project.status}
               </span>
             </div>
             
-            <h3 class="text-xl font-semibold text-gray-800 mb-3">{project.title}</h3>
-            <p class="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+            <h3 class="text-xl font-semibold text-cyan-400 mb-3">{project.title}</h3>
+            <p class="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
             
             <!-- Technologies -->
             <div class="flex flex-wrap gap-2 mb-4">
               {project.technologies.slice(0, 4).map(tech => (
-                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                <span class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 text-cyan-300 px-2 py-1 rounded text-sm backdrop-blur-sm">
                   {tech}
                 </span>
               ))}
               {project.technologies.length > 4 && (
-                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm">
+                <span class="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-400/20 text-cyan-300 px-2 py-1 rounded text-sm backdrop-blur-sm">
                   +{project.technologies.length - 4} more
                 </span>
               )}
@@ -61,18 +75,18 @@ import { projects } from '../data/projects';
             <div class="flex gap-2">
               <button 
                 onclick={`openProjectModal('${project.id}')`}
-                class="flex-1 bg-primary-600 text-white text-center py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors duration-300 font-medium text-sm"
+                class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-center py-2 px-3 rounded-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 font-medium text-sm shadow-lg shadow-cyan-500/25"
               >
-                Details
+                🔍 Details
               </button>
               {project.links.demo && (
                 <a 
                   href={project.links.demo} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 bg-green-600 text-white text-center py-2 px-3 rounded-lg hover:bg-green-700 transition-colors duration-300 font-medium text-sm"
+                  class="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-center py-2 px-3 rounded-lg hover:from-green-400 hover:to-emerald-400 transition-all duration-300 font-medium text-sm shadow-lg shadow-green-500/25"
                 >
-                  Demo
+                  🚀 Demo
                 </a>
               )}
               {project.links.github && (
@@ -80,9 +94,9 @@ import { projects } from '../data/projects';
                   href={project.links.github} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  class="flex-1 border-2 border-gray-300 text-gray-700 text-center py-2 px-3 rounded-lg hover:border-primary-600 hover:text-primary-600 transition-colors duration-300 font-medium text-sm"
+                  class="flex-1 border-2 border-cyan-400/40 text-cyan-400 text-center py-2 px-3 rounded-lg hover:bg-cyan-400/10 hover:border-cyan-400 transition-all duration-300 font-medium text-sm backdrop-blur-sm"
                 >
-                  Code
+                  💻 Code
                 </a>
               )}
             </div>
@@ -91,31 +105,41 @@ import { projects } from '../data/projects';
       ))}
     </div>
 
-    <!-- Project Details Modal would go here -->
+    <!-- CTA Section -->
     <div class="mt-16 text-center">
-      <p class="text-gray-600 mb-6">Want to see more projects or discuss a collaboration?</p>
-      <a 
-        href="#contact" 
-        class="inline-block bg-primary-600 text-white px-8 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-300 font-semibold"
-      >
-        Get In Touch
-      </a>
+      <div class="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-xl border border-cyan-400/20 p-8 max-w-2xl mx-auto">
+        <p class="text-gray-300 mb-6 text-lg">
+          🌌 Want to explore more projects or discuss launching a new mission together?
+        </p>
+        <a 
+          href="#contact" 
+          class="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-8 py-3 rounded-lg hover:from-cyan-400 hover:to-blue-400 transition-all duration-300 font-semibold shadow-lg shadow-cyan-500/25 hover:shadow-cyan-400/40 transform hover:scale-105"
+        >
+          <span>📡</span>
+          <span>Establish Communication</span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- Detailed Project Modal -->
-<div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 p-4">
-  <div class="max-w-5xl mx-auto my-8 bg-white rounded-xl overflow-hidden max-h-full overflow-y-auto">
+<div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden z-50 p-4 backdrop-blur-sm">
+  <div class="max-w-5xl mx-auto my-8 bg-gradient-to-br from-gray-800/95 to-gray-900/95 backdrop-blur-xl rounded-xl overflow-hidden max-h-full overflow-y-auto border border-cyan-400/30 shadow-2xl shadow-cyan-500/25">
     <div class="relative">
       <!-- Modal Header -->
-      <div class="bg-gradient-to-r from-primary-600 to-primary-700 p-6 text-white">
-        <div class="flex justify-between items-start">
+      <div class="bg-gradient-to-r from-cyan-500 to-blue-600 p-6 text-white relative overflow-hidden">
+        <!-- Background effects -->
+        <div class="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-blue-600/20"></div>
+        <div class="absolute top-2 right-20 w-8 h-8 bg-white/20 rounded-full animate-pulse"></div>
+        <div class="absolute bottom-2 left-20 w-4 h-4 bg-white/30 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+        
+        <div class="flex justify-between items-start relative z-10">
           <div>
             <h3 id="modal-title" class="text-3xl font-bold mb-2"></h3>
             <div id="modal-badges" class="flex gap-2"></div>
           </div>
-          <button id="close-modal" class="text-white hover:text-gray-200 text-3xl font-light">&times;</button>
+          <button id="close-modal" class="text-white hover:text-cyan-200 text-3xl font-light transition-colors duration-300 hover:scale-110 transform">&times;</button>
         </div>
       </div>
       
@@ -126,7 +150,7 @@ import { projects } from '../data/projects';
         </div>
         
         <!-- Modal Footer with Links -->
-        <div id="modal-links" class="flex gap-4 mt-8 pt-6 border-t border-gray-200">
+        <div id="modal-links" class="flex gap-4 mt-8 pt-6 border-t border-cyan-400/20">
           <!-- Links will be dynamically populated -->
         </div>
       </div>
@@ -183,43 +207,60 @@ import { projects } from '../data/projects';
 
     // Set badges
     modalBadges.innerHTML = `
-      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white">
-        ${project.category}
+      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white backdrop-blur-sm border border-white/30">
+        🚀 ${project.category}
       </span>
-      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white">
-        ${project.status}
+      <span class="px-3 py-1 rounded-full text-sm font-medium bg-white bg-opacity-20 text-white backdrop-blur-sm border border-white/30">
+        ⭐ ${project.status}
       </span>
     `;
 
     // Set content
     modalContent.innerHTML = `
       <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h4 class="text-xl font-semibold text-gray-800 mb-4">About This Project</h4>
-          <p class="text-gray-600 leading-relaxed mb-6">${project.longDescription}</p>
+        <div class="space-y-6">
+          <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/20">
+            <h4 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center">
+              <span class="mr-2">🌌</span>
+              Mission Overview
+            </h4>
+            <p class="text-gray-300 leading-relaxed">${project.longDescription}</p>
+          </div>
           
-          <h4 class="text-xl font-semibold text-gray-800 mb-4">Technologies Used</h4>
-          <div class="flex flex-wrap gap-2">
-            ${project.technologies.map(tech => `
-              <span class="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium">
-                ${tech}
-              </span>
-            `).join('')}
+          <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/20">
+            <h4 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center">
+              <span class="mr-2">🛠️</span>
+              Tech Arsenal
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              ${project.technologies.map(tech => `
+                <span class="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 text-cyan-300 px-3 py-1 rounded-full text-sm font-medium backdrop-blur-sm">
+                  ${tech}
+                </span>
+              `).join('')}
+            </div>
           </div>
         </div>
         
         <div>
-          <h4 class="text-xl font-semibold text-gray-800 mb-4">Key Features</h4>
-          <ul class="space-y-3">
-            ${project.features.map(feature => `
-              <li class="flex items-start space-x-3">
-                <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span class="text-gray-600">${feature}</span>
-              </li>
-            `).join('')}
-          </ul>
+          <div class="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-cyan-400/20">
+            <h4 class="text-xl font-semibold text-cyan-400 mb-4 flex items-center">
+              <span class="mr-2">⚡</span>
+              Mission Features
+            </h4>
+            <ul class="space-y-3">
+              ${project.features.map(feature => `
+                <li class="flex items-start space-x-3">
+                  <div class="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0">
+                    <svg fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span class="text-gray-300">${feature}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
         </div>
       </div>
     `;
@@ -228,20 +269,20 @@ import { projects } from '../data/projects';
     modalLinks.innerHTML = `
       ${project.links.demo ? `
         <a href="${project.links.demo}" target="_blank" rel="noopener noreferrer" 
-           class="flex items-center space-x-2 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition-colors duration-300 font-semibold">
+           class="flex items-center space-x-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-lg hover:from-green-400 hover:to-emerald-400 transition-all duration-300 font-semibold shadow-lg shadow-green-500/25 hover:shadow-green-400/40 transform hover:scale-105">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
           </svg>
-          <span>Live Demo</span>
+          <span>🚀 Launch Demo</span>
         </a>
       ` : ''}
       ${project.links.github ? `
         <a href="${project.links.github}" target="_blank" rel="noopener noreferrer" 
-           class="flex items-center space-x-2 bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 transition-colors duration-300 font-semibold">
+           class="flex items-center space-x-2 bg-gradient-to-r from-gray-700 to-gray-800 text-white px-6 py-3 rounded-lg hover:from-gray-600 hover:to-gray-700 transition-all duration-300 font-semibold shadow-lg shadow-gray-500/25 hover:shadow-gray-400/40 transform hover:scale-105 border border-cyan-400/20">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
           </svg>
-          <span>View Code</span>
+          <span>💻 View Source Code</span>
         </a>
       ` : ''}
     `;
